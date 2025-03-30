@@ -47,3 +47,24 @@
 //      - A message will appear congratulating them on winning the game
 //      - The time taken will appear underneath
 //      - They will click a button which allows them to play again
+
+// ! Elements
+
+const gridPositions = document.querySelector('.map')
+
+// ! Variables
+
+// ! Constants
+
+// ! Executions
+
+function minePosition(){
+    const randomPos = Math.floor(Math.random() * 99)
+    console.log(randomPos)
+    const minePos = document.getElementById(`${randomPos}`);
+    minePos.classList.add('mine')
+}
+
+//! Events
+
+minePosition()

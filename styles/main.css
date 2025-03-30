@@ -15,6 +15,9 @@ header {
 .button {
     background-color: white;
 }
+.mine {
+    background-color: red;
+}
 .button:hover {
     background-color: red;
 }
