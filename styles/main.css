@@ -12,6 +12,12 @@ header {
     grid-template-rows: repeat(10, 50px);
     gap: 1px;
 }
+.play{
+    justify-self: center;
+    background-color: greenyellow;
+    height: 50px;
+    width: 50px;
+}
 .button {
     background-color: white;
 }

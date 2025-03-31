@@ -51,30 +51,27 @@
 // ! Elements
 
 const gridPositions = document.querySelector('.map')
+const slots = document.querySelectorAll('.button')
+const playGame = document.querySelector('.play')
+const mainGame = document.querySelector('main')
 
 // ! Variables
 
 // ! Constants
 
 // ! Executions
-
+// function play(){
+//     mainGame.classList.remove('hide')
+//     playGame.classList.add('hide')
+//     minePosition()
+//     minesNearbyCheck()
+// }
 function minePosition(){
-    const minePositionArray = [];
-    //const randomPos = Math.floor(Math.random() * 99)
-    // const randomPos2 = Math.floor(Math.random() * 99)
-    // const randomPos3 = Math.floor(Math.random() * 99)
-    // const randomPos4 = Math.floor(Math.random() * 99)
-    // const randomPos5 = Math.floor(Math.random() * 99)
-    // const randomPos6 = Math.floor(Math.random() * 99)
-    // const randomPos7 = Math.floor(Math.random() * 99)
-    // const randomPos8 = Math.floor(Math.random() * 99)
-    // const randomPos9 = Math.floor(Math.random() * 99)
-    // const randomPos10 = Math.floor(Math.random() * 99)
-    // minePositionArray.push(randomPos, randomPos2, randomPos3, randomPos4, randomPos5, randomPos6, randomPos7, randomPos8, randomPos9, randomPos10)
+    const minePositionArray = []
     
     while(true) {
         const randomPos = Math.floor(Math.random() * 99)
-        console.log(randomPos)
+
         if(!minePositionArray.includes(randomPos)){
             minePositionArray.push(randomPos)
         }
@@ -82,15 +79,24 @@ function minePosition(){
             break;
         }
     }
-
-
+    
     minePositionArray.forEach((minePositionArray) => {
-        const minePosition = document.getElementById(`${minePositionArray}`);
+        const minePosition = document.getElementById(`${minePositionArray}`)
         minePosition.classList.add('mine')
     })
-    console.log(minePositionArray)
+
 }
 
+function minesNearbyCheck(){
+    slots.forEach((slot) => {
+        if(!slot.classList.contains('mine')){
+            slot.classList.add('clear')
+            
+        }
+    })
+} 
 //! Events
+// playGame.addEventListener('click', play)
 
 minePosition()
+minesNearbyCheck()
