@@ -59,10 +59,36 @@ const gridPositions = document.querySelector('.map')
 // ! Executions
 
 function minePosition(){
-    const randomPos = Math.floor(Math.random() * 99)
-    console.log(randomPos)
-    const minePos = document.getElementById(`${randomPos}`);
-    minePos.classList.add('mine')
+    const minePositionArray = [];
+    //const randomPos = Math.floor(Math.random() * 99)
+    // const randomPos2 = Math.floor(Math.random() * 99)
+    // const randomPos3 = Math.floor(Math.random() * 99)
+    // const randomPos4 = Math.floor(Math.random() * 99)
+    // const randomPos5 = Math.floor(Math.random() * 99)
+    // const randomPos6 = Math.floor(Math.random() * 99)
+    // const randomPos7 = Math.floor(Math.random() * 99)
+    // const randomPos8 = Math.floor(Math.random() * 99)
+    // const randomPos9 = Math.floor(Math.random() * 99)
+    // const randomPos10 = Math.floor(Math.random() * 99)
+    // minePositionArray.push(randomPos, randomPos2, randomPos3, randomPos4, randomPos5, randomPos6, randomPos7, randomPos8, randomPos9, randomPos10)
+    
+    while(true) {
+        const randomPos = Math.floor(Math.random() * 99)
+        console.log(randomPos)
+        if(!minePositionArray.includes(randomPos)){
+            minePositionArray.push(randomPos)
+        }
+        if(minePositionArray.length === 10){
+            break;
+        }
+    }
+
+
+    minePositionArray.forEach((minePositionArray) => {
+        const minePosition = document.getElementById(`${minePositionArray}`);
+        minePosition.classList.add('mine')
+    })
+    console.log(minePositionArray)
 }
 
 //! Events
