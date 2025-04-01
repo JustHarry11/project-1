@@ -29,18 +29,31 @@ main {
     
     
 }
+.level1{
+    color: blue;
+    background-color: lightblue;
+
+}
+.level2{
+    color: purple;
+    background-color: rgb(255, 6, 255);
+
+}
+.level3{
+    color: green;
+    background-color: lightgreen;
+
+}
+
 .play{
     justify-self: center;
     background-color: greenyellow;
     height: 50px;
     width: 50px;
 }
-.button {
+/* .button {
     background-color: white;
-}
+} */
 .mine {
     background-color: red;
 }
-/* .button:hover {
-    background-color: red;
-} */
