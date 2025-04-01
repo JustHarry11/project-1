@@ -89,10 +89,55 @@ function minePosition(){
 
 function minesNearbyCheck(){
     slots.forEach((slot) => {
-        if(!slot.classList.contains('mine')){
-            slot.classList.add('clear')
-            
+        if(slot.classList.contains('mine')){
+            return;
+        
         }
+        let minesFound = 0;
+
+        let leftPosition = slot.id -1;
+
+        // let rightPosition = slot.id +1;
+        
+        // let downPosition = slot.id -10;
+
+        // let downLeftPosition = slot.id -9;
+
+        // let downRightPosition = slot.id -11;
+
+        if(leftPosition >= 0 && leftPosition <= 99){
+            if(leftPosition % 10 == 9){
+
+            }
+            if(slots[leftPosition]?.classList.contains('mine')) {
+                minesFound ++;
+            }
+
+        }
+
+        // if(rightPosition >= 0 && rightPosition <= 99){
+        //     if(slots[rightPosition]?.classList.contains('mine')) {
+        //         minesFound ++;
+        //     }
+        // }
+
+        // if(downPosition >= 0 && downPosition <= 99){
+        //     if(slots[downPosition]?.classList.contains('mine')) {
+        //         minesFound ++;
+        //     }
+        // }
+        // if(downLeftPosition >= 0 && downLeftPosition <= 99){
+        //     if(slots[downLeftPosition]?.classList.contains('mine')) {
+        //         minesFound ++;
+        //     }
+        // }
+        // if(downRightPosition >= 0 && downRightPosition <= 99){
+        //     if(slots[downRightPosition]?.classList.contains('mine')) {
+        //         minesFound ++;
+        //     }
+        // }
+        slot.innerHTML = minesFound        
+        
     })
 } 
 //! Events

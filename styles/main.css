@@ -1,9 +1,24 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 header {
     text-align: center;
     font-family: "Manrope", sans-serif;
+    /* padding-bottom: 50px; */
+}
+.bar {
+    display: flex;
+    font-family: "Manrope", sans-serif;
+    justify-content: space-around;
+
 }
 .hide {
     display: none;
+}
+main {
 }
 .map {
     display: grid;
@@ -11,6 +26,8 @@ header {
     grid-template-columns: repeat(10, 50px);
     grid-template-rows: repeat(10, 50px);
     gap: 1px;
+    
+    
 }
 .play{
     justify-self: center;
