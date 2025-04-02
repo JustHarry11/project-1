@@ -54,18 +54,84 @@ const gridPositions = document.querySelector('.map')
 const slots = document.querySelectorAll('.button')
 const playGame = document.querySelector('.play')
 const mainGame = document.querySelector('main')
+const gameTime = document.querySelector('.timer')
 
 // ! Variables
+
+let count = 0;
+let timerInterval
+let gameStarted = false;
 
 // ! Constants
 
 // ! Executions
-// function play(){
-//     mainGame.classList.remove('hide')
-//     playGame.classList.add('hide')
-//     minePosition()
-//     minesNearbyCheck()
-// }
+
+function play(){
+    mainGame.classList.remove('hide')
+    playGame.classList.add('hide')
+    minePosition()
+    minesNearbyCheck()
+    gameTimer()   
+}
+
+function gameOver(){
+    
+}
+
+function slotClicked(event){
+    const clickedSlotPosition = event.target
+    if(event.target.classList.contains('mine')){
+        clearInterval(timerInterval)
+        slots.forEach(slot => {
+            slot.classList.remove('unclicked') 
+             
+        })
+    }
+    recursiveMineSweep(clickedSlotPosition)
+}
+
+
+function recursiveMineSweep(clickedSlotPosition){
+
+    let leftPosition = clickedSlotPosition.id -1;
+    let rightPosition = clickedSlotPosition.id - (-1);
+    let upPosition = clickedSlotPosition.id -10;
+    let downPosition = clickedSlotPosition.id -(-10);
+    
+    clickedSlotPosition.classList.remove('unclicked')
+
+
+    if(clickedSlotPosition.classList.contains('level0')){
+
+        if(leftPosition >= 0 && leftPosition <= 99){
+            if(clickedSlotPosition.id % 10 !== 0){
+                if(slots[leftPosition].classList.contains('level0') && slots[leftPosition].classList.contains('unclicked')){                   
+                    recursiveMineSweep(slots[leftPosition])
+                }
+            }
+        }
+        if(rightPosition >= 0 && rightPosition <= 99){
+            if(clickedSlotPosition.id % 10 !== 9){
+                if(slots[rightPosition].classList.contains('level0') && slots[rightPosition].classList.contains('unclicked')){                   
+                    recursiveMineSweep(slots[rightPosition])
+                }
+            } 
+        } 
+        if(upPosition >= 0 && upPosition <= 99){
+            if(slots[upPosition].classList.contains('level0') && slots[upPosition].classList.contains('unclicked')){
+                recursiveMineSweep(slots[upPosition])
+            }
+        }
+        if(downPosition >= 0 && downPosition <= 99){
+            if(slots[downPosition].classList.contains('level0') && slots[downPosition].classList.contains('unclicked')){
+                recursiveMineSweep(slots[downPosition])
+            }
+        }
+    }
+    
+}
+
+
 function minePosition(){
     const minePositionArray = []
     
@@ -83,8 +149,10 @@ function minePosition(){
     minePositionArray.forEach((minePositionArray) => {
         const minePosition = document.getElementById(`${minePositionArray}`)
         minePosition.classList.add('mine')
+        minePosition.innerHTML = 'M'
     })
 }
+
 
 function minesNearbyCheck(){
     slots.forEach((slot) => {
@@ -164,12 +232,39 @@ function minesNearbyCheck(){
                 }
             }
         }
-        slot.innerHTML = minesFound
+        if(minesFound > 0){
+            slot.innerHTML = minesFound
+        }
+        
         slot.classList.add("level"+ `${minesFound}`) 
     })
 } 
-//! Events
-// playGame.addEventListener('click', play)
 
-minePosition()
-minesNearbyCheck()
+
+function gameTimer(){
+    timerInterval = setInterval(() => {
+		if(count >= 0){
+			count ++;
+            gameTime.innerHTML = `${count}`
+            //console.log(count)
+		}
+
+	}, 1000) 
+}
+
+
+function winCondition(){
+    clearInterval(timerInterval)
+    slots.forEach(slot => {
+        if(slot.classList.contains('unclicked')){          
+        }  
+    })
+    
+}
+
+
+playGame.addEventListener('click', play)
+
+slots.forEach(slot => {
+    slot.addEventListener('click', slotClicked)    
+})

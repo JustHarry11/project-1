@@ -7,19 +7,19 @@ html, body {
 header {
     text-align: center;
     font-family: "Manrope", sans-serif;
-    /* padding-bottom: 50px; */
 }
 .bar {
     display: flex;
+    /* width: 500px; */
     font-family: "Manrope", sans-serif;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    
 
 }
 .hide {
     display: none;
 }
-main {
-}
+
 .map {
     display: grid;
     justify-content: center;
@@ -29,31 +29,41 @@ main {
     
     
 }
-.level1{
-    color: blue;
-    background-color: lightblue;
 
+.unclicked{
+    background-color: grey;
+    color: grey;
 }
-.level2{
-    color: purple;
-    background-color: rgb(255, 6, 255);
-
+.mine {
+    border-color: red;
 }
-.level3{
-    color: green;
-    background-color: lightgreen;
-
-}
-
 .play{
     justify-self: center;
-    background-color: greenyellow;
-    height: 50px;
-    width: 50px;
-}
-/* .button {
     background-color: white;
-} */
-.mine {
-    background-color: red;
+    height: 50px;
+    width: 100px;
+}
+.retry{
+    justify-self: center;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+}
+.level1 button{
+    color: blue;
+    
+
+}
+.level2 button{
+    color: purple;
+
+}
+.level3 button{
+    color: green;
+}
+.level4 button{
+    color: darkorange;
+}
+.mine button{
+    color: red;
 }
