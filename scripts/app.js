@@ -48,8 +48,6 @@
 //      - The time taken will appear underneath
 //      - They will click a button which allows them to play again
 
-// ! Elements
-
 const gridPositions = document.querySelector('.map')
 const slots = document.querySelectorAll('.button')
 const playGame = document.querySelector('.play')
@@ -67,7 +65,6 @@ let gameStarted = false;
 let cleared = 0;
 let flag = 10;
 
-console.log(count);
 
 function play(){
     mainGame.classList.remove('hide')
@@ -84,11 +81,14 @@ function play(){
 function slotClicked(event){
     const clickedSlotPosition = event.target
     if(event.target.classList.contains('mine')){
+        event.target.innerHTML = 'M'
         clearInterval(timerInterval)
         slots.forEach(slot => {
             slot.classList.remove('unclicked')
-            slot.classList.remove('flag')  
-             
+            slot.classList.remove('flag')
+            if(slot.classList.contains('mine')){
+                slot.innerHTML = 'M' 
+            }  
         })
         gameTime.classList.add('hide')
         flagCounter.classList.add('hide')
@@ -105,8 +105,6 @@ function recursiveMineSweep(clickedSlotPosition){
     let rightPosition = clickedSlotPosition.id - (-1);
     let upPosition = clickedSlotPosition.id -10;
     let downPosition = clickedSlotPosition.id -(-10);
-    
-    console.log(cleared);
     
     
     if(clickedSlotPosition.classList.contains('unclicked')){
@@ -165,7 +163,7 @@ function minePosition(){
     minePositionArray.forEach((minePositionArray) => {
         const minePosition = document.getElementById(`${minePositionArray}`)
         minePosition.classList.add('mine')
-        minePosition.innerHTML = 'M'
+        //minePosition.innerHTML = 'M'
     })
 }
 
@@ -248,6 +246,7 @@ function minesNearbyCheck(){
                 }
             }
         }
+
         if(minesFound > 0){
             slot.innerHTML = minesFound
         }
