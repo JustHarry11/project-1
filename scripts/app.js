@@ -59,8 +59,7 @@ const flagCounter = document.querySelector('.flag')
 const retryGame = document.querySelector('.retry')
 const retryMessage = document.querySelector('#retrymessage')
 const victoryMessage = document.querySelector('#victorymessage')
-
-// ! Variables
+const instructionImage = document.querySelector('.image')
 
 let count = 0;
 let timerInterval
@@ -68,19 +67,18 @@ let gameStarted = false;
 let cleared = 0;
 let flag = 10;
 
-// ! Constants
-
-// ! Executions
+console.log(count);
 
 function play(){
     mainGame.classList.remove('hide')
     playGame.classList.add('hide')
+    instructionImage.classList.add('hide')
     minePosition()
     minesNearbyCheck()
-    gameTimer()   
+    gameTimer()
+    gameTime.textContent = `${count}`
+    flagCounter.textContent = `${flag}`   
 }
-
-
 
 
 function slotClicked(event){
@@ -88,7 +86,8 @@ function slotClicked(event){
     if(event.target.classList.contains('mine')){
         clearInterval(timerInterval)
         slots.forEach(slot => {
-            slot.classList.remove('unclicked') 
+            slot.classList.remove('unclicked')
+            slot.classList.remove('flag')  
              
         })
         gameTime.classList.add('hide')
@@ -99,6 +98,7 @@ function slotClicked(event){
     recursiveMineSweep(clickedSlotPosition)
 }
 
+
 function recursiveMineSweep(clickedSlotPosition){
 
     let leftPosition = clickedSlotPosition.id -1;
@@ -106,15 +106,13 @@ function recursiveMineSweep(clickedSlotPosition){
     let upPosition = clickedSlotPosition.id -10;
     let downPosition = clickedSlotPosition.id -(-10);
     
+    console.log(cleared);
     
     
     if(clickedSlotPosition.classList.contains('unclicked')){
         cleared ++;
         if(cleared === 90){
-            console.log("WIN");
             winCondition()
-            
-            
         }
     }
     clickedSlotPosition.classList.remove('unclicked')
@@ -263,8 +261,7 @@ function gameTimer(){
     timerInterval = setInterval(() => {
 		if(count >= 0){
 			count ++;
-            gameTime.innerHTML = `${count}`
-            //console.log(count)
+            gameTime.textContent = `${count}`
 		}
 	}, 1000) 
 }
@@ -276,11 +273,15 @@ function winCondition(){
     victoryMessage.textContent = "Congratulation, You Won in " + `${count}` + " seconds"
     gameTime.classList.add('hide')
     flagCounter.classList.add('hide')
+    slots.forEach(slot => {
+        slot.classList.remove('flag')   
+    })
 }
 
 function resetGame(){
     slots.forEach(slot => {
         slot.classList.add('unclicked')
+        slot.classList.remove('flag')   
         slot.classList.remove('mine')      
         slot.classList.remove('level0')
         slot.classList.remove('level1') 
@@ -294,6 +295,16 @@ function resetGame(){
     playGame.classList.remove('hide')
     retryMessage.textContent = ""
     victoryMessage.textContent = ""
+    gameTime.classList.remove('hide')
+    flagCounter.classList.remove('hide')
+    instructionImage.classList.remove('hide')
+    count = 0;
+    flag = 10;
+    cleared = 0
+
+    gameTime.textContent = `${count}`
+    flagCounter.textContent = `${flag}`
+
 
 
 }
@@ -320,7 +331,7 @@ window.oncontextmenu = (e) => {
         e.target.classList.remove("flag")
         flag ++;
     }
-    flagCounter.innerHTML = `${flag}`
+    flagCounter.textContent = `${flag}`
 }
 
 
