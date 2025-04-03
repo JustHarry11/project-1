@@ -55,12 +55,18 @@ const slots = document.querySelectorAll('.button')
 const playGame = document.querySelector('.play')
 const mainGame = document.querySelector('main')
 const gameTime = document.querySelector('.timer')
+const flagCounter = document.querySelector('.flag')
+const retryGame = document.querySelector('.retry')
+const retryMessage = document.querySelector('#retrymessage')
+const victoryMessage = document.querySelector('#victorymessage')
 
 // ! Variables
 
 let count = 0;
 let timerInterval
 let gameStarted = false;
+let cleared = 0;
+let flag = 10;
 
 // ! Constants
 
@@ -74,9 +80,8 @@ function play(){
     gameTimer()   
 }
 
-function gameOver(){
-    
-}
+
+
 
 function slotClicked(event){
     const clickedSlotPosition = event.target
@@ -86,10 +91,13 @@ function slotClicked(event){
             slot.classList.remove('unclicked') 
              
         })
+        gameTime.classList.add('hide')
+        flagCounter.classList.add('hide')
+        retryGame.classList.remove('hide')
+        retryMessage.textContent = "Unlucky, You Lost!"
     }
     recursiveMineSweep(clickedSlotPosition)
 }
-
 
 function recursiveMineSweep(clickedSlotPosition){
 
@@ -98,14 +106,24 @@ function recursiveMineSweep(clickedSlotPosition){
     let upPosition = clickedSlotPosition.id -10;
     let downPosition = clickedSlotPosition.id -(-10);
     
+    
+    
+    if(clickedSlotPosition.classList.contains('unclicked')){
+        cleared ++;
+        if(cleared === 90){
+            console.log("WIN");
+            winCondition()
+            
+            
+        }
+    }
     clickedSlotPosition.classList.remove('unclicked')
-
-
+    
     if(clickedSlotPosition.classList.contains('level0')){
 
         if(leftPosition >= 0 && leftPosition <= 99){
             if(clickedSlotPosition.id % 10 !== 0){
-                if(slots[leftPosition].classList.contains('level0') && slots[leftPosition].classList.contains('unclicked')){                   
+                if(slots[leftPosition].classList.contains('level0') && slots[leftPosition].classList.contains('unclicked')){
                     recursiveMineSweep(slots[leftPosition])
                 }
             }
@@ -248,23 +266,61 @@ function gameTimer(){
             gameTime.innerHTML = `${count}`
             //console.log(count)
 		}
-
 	}, 1000) 
 }
 
 
 function winCondition(){
     clearInterval(timerInterval)
+    retryGame.classList.remove('hide')
+    victoryMessage.textContent = "Congratulation, You Won in " + `${count}` + " seconds"
+    gameTime.classList.add('hide')
+    flagCounter.classList.add('hide')
+}
+
+function resetGame(){
     slots.forEach(slot => {
-        if(slot.classList.contains('unclicked')){          
-        }  
+        slot.classList.add('unclicked')
+        slot.classList.remove('mine')      
+        slot.classList.remove('level0')
+        slot.classList.remove('level1') 
+        slot.classList.remove('level2')
+        slot.classList.remove('level3') 
+        slot.classList.remove('level4')
+        slot.innerHTML = ""  
     })
+    retryGame.classList.add('hide')
+    mainGame.classList.add('hide')
+    playGame.classList.remove('hide')
+    retryMessage.textContent = ""
+    victoryMessage.textContent = ""
+
+
+}
+
+playGame.addEventListener('click', play)
+retryGame.addEventListener('click', resetGame)
+
+slots.forEach(slot => {
+    slot.addEventListener('click', slotClicked)
+       
+})
+
+window.oncontextmenu = (e) => {
+    e.preventDefault()
     
+    const rightClickedSlotPositon = e.target
+    if(rightClickedSlotPositon.classList.contains('unclicked') && !rightClickedSlotPositon.classList.contains('flag')){
+        e.target.classList.add("flag")
+        flag --;
+    } else if(rightClickedSlotPositon.classList.contains('unclicked') && rightClickedSlotPositon.classList.contains('flag')){
+        e.target.classList.remove("flag")
+        flag ++;
+    } else if(!rightClickedSlotPositon.classList.contains('unclicked') && rightClickedSlotPositon.classList.contains('flag')){
+        e.target.classList.remove("flag")
+        flag ++;
+    }
+    flagCounter.innerHTML = `${flag}`
 }
 
 
-playGame.addEventListener('click', play)
-
-slots.forEach(slot => {
-    slot.addEventListener('click', slotClicked)    
-})

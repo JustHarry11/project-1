@@ -14,16 +14,16 @@
     <header>
         <h1>Minesweeper</h1>
     </header>
-    <section class = "play">
+
+    <div class="playcontainer">
         <button class = "play">Play Game</button>
-    </section>
-    <section class = "retry">
-        <button class = "retry hide">Play Again?</button>
-    </section>
+    </div>
+
+    
     <main class = "hide">
         <div class = "bar">
-            <h1 class = "Flag">Flag</h1>
-            <h1 class = "timer"></h1>
+            <h1 class = "flag">Flags</h1>
+            <h1 class = "timer">Time</h1>
         </div>
         <div class = "map">
             <button class="button unclicked" id="0"></button>
@@ -128,5 +128,14 @@
             <button class="button unclicked" id="99"></button>
         </div>
     </main>
+    <div class="retrycontainer">
+        <h2 id = "retrymessage"></h2>
+        <h2 id = "victorymessage"></h2>
+        <button class = "retry hide">Play Again?</button>
+    </div>
+    <div class="victorycontainer">
+        <h2 id = "victorymessage"></h2>
+        <button class = "victory hide">Play Again?</button>
+    </div>
 </body>
 </html>

@@ -8,9 +8,11 @@ header {
     text-align: center;
     font-family: "Manrope", sans-serif;
 }
+h2 {
+    font-family: "Manrope", sans-serif;
+}
 .bar {
     display: flex;
-    /* width: 500px; */
     font-family: "Manrope", sans-serif;
     justify-content: space-evenly;
     
@@ -26,28 +28,46 @@ header {
     grid-template-columns: repeat(10, 50px);
     grid-template-rows: repeat(10, 50px);
     gap: 1px;
-    
-    
 }
 
 .unclicked{
     background-color: grey;
     color: grey;
 }
+.flag {
+    border-color: aquamarine;
+}
 .mine {
-    border-color: red;
+    background-color: white;
+}
+
+.playcontainer{
+    display: flex;
+    justify-content: center;
+}
+.retrycontainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    
 }
 .play{
-    justify-self: center;
     background-color: white;
+    font-family: "Manrope", sans-serif;
+    align-content: center;
     height: 50px;
     width: 100px;
+
 }
 .retry{
-    justify-self: center;
     background-color: white;
+    font-family: "Manrope", sans-serif;
+    text-align: center;
     height: 50px;
     width: 100px;
+
 }
 .level1 button{
     color: blue;
