@@ -56,18 +56,60 @@ h2 {
     
 }
 .play{
-    background-color: white;
+    background-color: rgb(212, 206, 206);
     font-family: "Manrope", sans-serif;
     align-content: center;
+    font-size: medium;
+    font-weight: bold;
     height: 50px;
     width: 100px;
 
 }
 .retry{
-    background-color: white;
+    background-color: rgb(212, 206, 206);
     font-family: "Manrope", sans-serif;
-    text-align: center;
+    align-content: center;
+    font-size: medium;
+    font-weight: bold;
     height: 50px;
     width: 100px;
 
+}
+
+.mine {
+    color: red;
+    font-size: larger;
+}
+
+.level1{
+    color: blue;
+    font-size: larger;
+}
+.level2{
+    color: green;
+    font-size: larger;
+}
+.level3{
+    color: purple;
+    font-size: larger;
+}
+.level4{
+    color: rgb(218, 147, 15);
+    font-size: larger;
+}
+.level5{
+    color: rgb(207, 121, 135);
+    font-size: larger;
+}
+.level6{
+    color: rgb(159, 99, 244);
+    font-size: larger;
+}
+.level7{
+    color: rgb(157, 157, 22);
+    font-size: larger;
+}
+.level8{
+    color: rgb(59, 168, 171);
+    font-size: larger;
 }
