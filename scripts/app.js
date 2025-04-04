@@ -44,28 +44,28 @@ function slotClicked(event){
         retryGame.classList.remove('hide')
         retryMessage.textContent = "Unlucky, You Lost!"
     }
-    if(clickedSlotPosition.classList.contains("level1")){
+    if(clickedSlotPosition.classList.contains("level1") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '1'
     }
-    if(clickedSlotPosition.classList.contains("level2")){
+    if(clickedSlotPosition.classList.contains("level2") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '2'
     }
-    if(clickedSlotPosition.classList.contains("level3")){
+    if(clickedSlotPosition.classList.contains("level3") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '3'
     }
-    if(clickedSlotPosition.classList.contains("level4")){
+    if(clickedSlotPosition.classList.contains("level4") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '4'
     }
-    if(clickedSlotPosition.classList.contains("level5")){
+    if(clickedSlotPosition.classList.contains("level5") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '5'
     }
-    if(clickedSlotPosition.classList.contains("level6")){
+    if(clickedSlotPosition.classList.contains("level6") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '6'
     }
-    if(clickedSlotPosition.classList.contains("level7")){
+    if(clickedSlotPosition.classList.contains("level7") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '7'
     }
-    if(clickedSlotPosition.classList.contains("level8")){
+    if(clickedSlotPosition.classList.contains("level8") && clickedSlotPosition.classList.contains("unclicked")){
         clickedSlotPosition.innerHTML = '8'
     }
     recursiveMineSweep(clickedSlotPosition)
