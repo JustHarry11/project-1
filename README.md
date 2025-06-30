@@ -12,56 +12,45 @@ https://justharry11.github.io/project-1/
 
 ## Getting Started/Code Installation
 
-Instructions
-
-Explain how the reader accesses your code. Include a step by step approach.
-
-Insert your Getting Started/Code Installation here:
+1. Clone the repository
+2. Open the index.html with Live Server
+3. Enjoy the game
 
 
+## Timeframe & Working Team (Solo/Pair/Group)
+
+I started working on this solo project on 31st March and finish on the 4th April
 
 
+## Technologies Used
 
-Timeframe & Working Team (Solo/Pair/Group)
+Front End
 
-Instructions
+  - HTML
+  - JavaScript
+  - CSS
 
-Share the timeframe given for the project and whether you worked independently, in a pair, or in a group.
+Other Tools
 
-If you worked in a pair or group, include the names of the people you collaborated with. As a bonus, you can also provide links to their GitHub repo.
+  - GitHub
+  - Visual Studio Code
 
-Insert your Timeframe & Working Team here:
+
+## Brief
+
+MVP
+
+  - Render the game in the browser using the DOM manipulation techniques demonstrated in lecture.
+  - Include win/loss logic and render win/loss messages in HTML. The game you chose must have a win/lose condition.
+  - Include separate HTML, CSS, JavaScript, and JavaScript data files organized in an appropriate directory structure.
+  - Include all required features specific to your game. Game-specific required features are defined in the Required Features column in the table in the Recommended Games document, or as discussed with your instructor. If you want to build a game that is not on this list, you will need to present and discuss your game’s features with the instructional team for approval.
+  - The game is deployed online so that the rest of the world can play it.
+
+
+## Planning
+
 
 ![wireframe](image-1.png)
-
-
-
-Technologies Used
-
-Instructions
-
-List every technology you used to complete the project. This can be in one long list, or broken down into categories (Back End, Front End, Development Tools).
-
-Insert your Technologies Used here:
-
-
-
-
-
-Brief
-Instructions
-
-Include the brief set by your instructional team here. This sets the context of the project you were working towards and mimics briefs you will be set later in your future roles.
-
-This can either be in bullets or in a paragraph.
-
-
-Insert your Brief here:
-
-
-
-
-Planning
 
 Instructions
 
