@@ -52,33 +52,48 @@ MVP
 
 ![wireframe](image-1.png)
 
-Instructions
+Here is how I wanted the game to look, I wanted to keep the layout simple and make it easy for the player to visually see the important aspects of the game.
 
-The planning stage is important, as all projects in your future roles will have detailed plans before any coding happens. It is a great experience to share with potential engineer employers, as this reflects real engineering team practices. 
+I created a trello board which allows me to set deadlines and layed out what I would be working on each day. Doing this helped as I neved felt rushed and as I was working alone I knew what needed to be done before I could start working on the next part. 
 
-Start by explaining the initial steps you took in the project. 
+User Story
 
-Did you do any sketches? If so, discuss this and include images.
-Any wireframes of the front end and UI? You did? Then explain this and include images.
-Any ERDs? Same here, explain and include images.
-Use a project management tool to plan the sprint? If so, talk through this - what tool did you use? How you allocated tickets/responsibilities, sprint timeline etc. Also include screenshots of this.
-Any pseudocode? 
-If it was a group or pair project - Discuss who was designated which tasks. This is very important, as engineers want to understand who owned the different code elements when looking at a group project.
+1: Game Start
 
-For each project, review the above bullets and discuss every step you took in the planning stage, including the relevant images.
+  - When the game loads I want the player to see the instrustions on how to play along with a clear buttons which tells the player to start the game.
 
-Not every project will include the above, but it’s important to discuss any of the bullets that you did implement.
+2: Game
 
-Insert your Planning here:
+  - When the player begins the game a timer should appear to show how long they have been playing
+  - The 10 x 10 board will apear in the center of the screen
+
+3: First Selection
+
+  - Once the player clicks on a given tile is should either
+        - Show a blank tile and cascade and fill all connection empty tiles
+        - Show the number of mines around the tile, clearing displayed in the center
+        - Show a mine which will take them to the game over screen
+
+4: Flag Possible Mines
+
+  - The player should be able to right click on a slow which they think has a mine inside
+  - This will be clearly displayed to the player
+
+5: Win Condition
+
+  - Once the player has cleared the board which only the 10 blank tiles with mines behind the player will be take to the win screen
+        - The player will be greeted with a victory message
+        - The time it has taken them to win
+        - Play again button will be displayed to allow the player to play again
+
+6: Lose Condition
+
+  - If the player clicks on a tile with a mine behind they will be taken to the lose screen
+        - The player will be shown the they have lost
+        - A button to play again will apear
 
 
-
-
-
-
-
-
-Build/Code Process
+## Build/Code Process
 
 Instructions
 
@@ -100,7 +115,7 @@ Insert your Build/Code Process here:
 
 
 
-Challenges
+## Challenges
 
 Instructions
 
@@ -121,7 +136,7 @@ Insert your Challenges here:
 
 
 
-Wins
+## Wins
 
 Instructions
 
@@ -137,7 +152,7 @@ Visual design of the project
 Insert your Wins here:
 
 
-Key Learnings/Takeaways
+## Key Learnings/Takeaways
 
 Instructions
 
@@ -158,7 +173,7 @@ Insert your Key Learnings/Takeaways here:
 
 
 
-Bugs
+## Bugs
 
 Instructions
 
@@ -172,7 +187,7 @@ Insert your Bugs here:
 
 
 
-Future Improvements
+## Future Improvements
 
 Instructions
 
