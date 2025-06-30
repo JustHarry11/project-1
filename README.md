@@ -32,7 +32,7 @@ If you worked in a pair or group, include the names of the people you collaborat
 
 Insert your Timeframe & Working Team here:
 
-
+![wireframe](image-1.png)
 
 
 
